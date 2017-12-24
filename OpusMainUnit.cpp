@@ -509,7 +509,7 @@ extern "C" __declspec(dllexport) HRESULT _stdcall V2Link(iTVPFunctionExporter *e
 		debug_str += ttstr(val);
 		debug_str += TJS_W("%)");
 		TVPAddLog(debug_str);
-		// op_set_gain_offset ‚ğŒÄ‚Ño‚µ‚½•û‚ª—Ç‚³‚»‚¤
+		// op_set_gain_offset ã‚’å‘¼ã³å‡ºã—ãŸæ–¹ãŒè‰¯ã•ãã†
 	}
 
 	if(TVPGetCommandLine(TJS_W("-opus_pcm_format"), &val))
