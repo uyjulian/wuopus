@@ -17,6 +17,8 @@ extern "C" {
 #include "tp_stub.h"
 #include "tvpsnd.h" // TSS sound system interface definitions
 
+#define EXPORT(hr) extern "C" __declspec(dllexport) hr __stdcall
+
 static bool FloatExtraction = false; // true if output format is IEEE 32-bit float
 
 //---------------------------------------------------------------------------
@@ -481,7 +483,7 @@ opus_int64 _cdecl OpusWaveDecoder::tell_func(void *stream)
 // ##########################################################################
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-HRESULT _stdcall GetModuleInstance(ITSSModule **out, ITSSStorageProvider *provider,
+EXPORT(HRESULT) GetModuleInstance(ITSSModule **out, ITSSStorageProvider *provider,
 	IStream * config, HWND mainwin)
 {
 	// GetModuleInstance function (exported)
@@ -490,7 +492,7 @@ HRESULT _stdcall GetModuleInstance(ITSSModule **out, ITSSStorageProvider *provid
 	return S_OK;
 }
 //---------------------------------------------------------------------------
-extern "C" __declspec(dllexport) HRESULT _stdcall V2Link(iTVPFunctionExporter *exporter)
+EXPORT(HRESULT) V2Link(iTVPFunctionExporter *exporter)
 {
 	TVPInitImportStub(exporter);
 	
@@ -524,7 +526,7 @@ extern "C" __declspec(dllexport) HRESULT _stdcall V2Link(iTVPFunctionExporter *e
 	return S_OK;
 }
 //---------------------------------------------------------------------------
-extern "C" __declspec(dllexport) HRESULT _stdcall V2Unlink()
+EXPORT(HRESULT) V2Unlink()
 {
 	TVPUninitImportStub();
 	return S_OK;
