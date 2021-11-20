@@ -15,7 +15,7 @@ extern "C" {
 #include <string.h>
 #include <stdlib.h>
 #include "tp_stub.h"
-#include "tvpsnd.h" // TSS sound system interface definitions
+#include <tvpsnd.h> // TSS sound system interface definitions
 
 #define EXPORT(hr) extern "C" __declspec(dllexport) hr __stdcall
 

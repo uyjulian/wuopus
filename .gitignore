@@ -10,3 +10,9 @@
 *.res
 *.sbr
 .vs/
+*.dll
+*.o
+*.7z
+*.dep.make
+build-*/
+
